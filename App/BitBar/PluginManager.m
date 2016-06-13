@@ -10,6 +10,7 @@
 #import "Plugin.h"
 #import "ExecutablePlugin.h"
 #import "HTMLPlugin.h"
+#import "BundlePlugin.h"
 #import "NSUserDefaults+Settings.h"
 #import "LaunchAtLoginController.h"
 
@@ -188,9 +189,13 @@
       // filter application executable
       // filter subdirectories
       dirFiles = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id name, NSDictionary *bindings) {
-        BOOL isDir;
+        // filter the application executable
         NSString * path = [self.path stringByAppendingPathComponent:name];
-        return ![path isEqualToString:[NSBundle mainBundle].executablePath] && [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir] && !isDir;
+        if ([path isEqualToString:NSBundle.mainBundle.executablePath]) return NO;
+        BOOL isDir;
+        if (![[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir]) return NO;
+        // filter out directories, unless they are bitbarplugin files
+        return !isDir || [path.pathExtension.lowercaseString isEqualToString:@"bitbarplugin"];
       }]];
       return dirFiles;
     }
@@ -282,6 +287,8 @@
       Plugin *plugin;
       if ([@[@"html",@"htm"] containsObject:file.pathExtension.lowercaseString]) {
         plugin = [HTMLPlugin.alloc initWithManager:self];
+      } else if ([file.pathExtension.lowercaseString isEqualToString:@"bitbarplugin"]) {
+        plugin = [BundlePlugin.alloc initWithManager:self];
       } else {
         plugin = [ExecutablePlugin.alloc initWithManager:self];
       }
