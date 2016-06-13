@@ -41,6 +41,25 @@
 	<string>Copyright ©2013-2016 Mat Ryer. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>App</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>PluginIcon</string>
+			<key>LSTypeIsPackage</key>
+			<true/>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>bitbarplugin</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleTypeName</key>
+			<string>BitBar Plugin</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+		</dict>
+	</array>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

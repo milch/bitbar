@@ -16,6 +16,8 @@
 		05DAE02D1833274100409786 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAE02C1833274100409786 /* PluginManager.m */; };
 		05DAE02F1833276C00409786 /* PluginManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAE02E1833276C00409786 /* PluginManagerTest.m */; };
 		05DB995C1C3D4B80008B5159 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05DB995B1C3D4B80008B5159 /* Images.xcassets */; };
+		32A564611D0EE47000142DD9 /* PluginIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 32A564601D0EE47000142DD9 /* PluginIcon.icns */; };
+		32A564621D0EE47000142DD9 /* PluginIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 32A564601D0EE47000142DD9 /* PluginIcon.icns */; };
 		36372DCC1C9424DB0005EB32 /* PluginTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0599719718333DB300EA6D8D /* PluginTest.m */; };
 		36372DCE1C9424DB0005EB32 /* PluginManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DAE02E1833276C00409786 /* PluginManagerTest.m */; };
 		36372DCF1C9424DB0005EB32 /* PluginManager+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7303DF1C93848400AF5499 /* PluginManager+Test.m */; };
@@ -141,6 +143,7 @@
 		05DAE02C1833274100409786 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PluginManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05DAE02E1833276C00409786 /* PluginManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PluginManagerTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05DB995B1C3D4B80008B5159 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		32A564601D0EE47000142DD9 /* PluginIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PluginIcon.icns; sourceTree = "<group>"; };
 		36372DD61C9424DB0005EB32 /* BitBarDistroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitBarDistroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DCD8D81C76027C004DE286 /* BitBarDistro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBarDistro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5D08F91BA8EF6300400886 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
@@ -273,6 +276,7 @@
 				05DADFFB183323DD00409786 /* BitBar-Info.plist */,
 				0531DCD81844070A007F0A96 /* App.xib */,
 				05590ACE1C3E74C100352E77 /* CHANGELOG.md */,
+				32A564601D0EE47000142DD9 /* PluginIcon.icns */,
 			);
 			name = "Supporting Files";
 			path = BitBar;
@@ -505,6 +509,7 @@
 			files = (
 				0531DCD91844070A007F0A96 /* App.xib in Resources */,
 				05DB995C1C3D4B80008B5159 /* Images.xcassets in Resources */,
+				32A564611D0EE47000142DD9 /* PluginIcon.icns in Resources */,
 				7B9A21651B9F0F10002539F7 /* DateTools.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,6 +536,7 @@
 			files = (
 				36DCD8D21C76027C004DE286 /* App.xib in Resources */,
 				36DCD8D31C76027C004DE286 /* Images.xcassets in Resources */,
+				32A564621D0EE47000142DD9 /* PluginIcon.icns in Resources */,
 				36DCD8D41C76027C004DE286 /* DateTools.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
