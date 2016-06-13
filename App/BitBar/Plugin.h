@@ -35,6 +35,7 @@
 - (void) rebuildMenuForStatusItem:(NSStatusItem*)statusItem;
 - (void) addAdditionalMenuItems:(NSMenu *)menu;
 - (void) addDefaultMenuItems:(NSMenu *)menu;
+- (NSNumber *)refreshIntervalFromString:(NSString *)timeStr;
 
 - (void)performRefreshNow;
 - (BOOL) refresh;

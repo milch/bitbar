@@ -351,6 +351,31 @@
   [_manager reset];
 }
 
+- (NSNumber *)refreshIntervalFromString:(NSString *)timeStr {
+  if ([timeStr length] < 2) {
+    return @(DEFAULT_TIME_INTERVAL_SECONDS);
+  }
+  
+  NSString *numberPart = [timeStr substringToIndex:[timeStr length]-1];
+  double numericalValue = numberPart.doubleValue ?: DEFAULT_TIME_INTERVAL_SECONDS;
+  
+  if ([timeStr hasSuffix:@"s"]) {
+    // this is ok - but nothing to do
+  } else if ([timeStr hasSuffix:@"m"]) {
+    numericalValue *= 60;
+  } else if ([timeStr hasSuffix:@"h"]) {
+    numericalValue *= 60*60;
+  } else if ([timeStr hasSuffix:@"d"]) {
+    numericalValue *= 60*60*24;
+  } else {
+    return @(DEFAULT_TIME_INTERVAL_SECONDS);
+  }
+  
+  
+  return @(numericalValue);
+  
+}
+
 - (NSNumber*) refreshIntervalSeconds {
   
   if (_refreshIntervalSeconds == nil) {
@@ -362,29 +387,10 @@
     
     NSString *timeStr = [segments[1] lowercaseString];
     
-    if ([timeStr length] < 2) {
-      _refreshIntervalSeconds = @(DEFAULT_TIME_INTERVAL_SECONDS);
-      return _refreshIntervalSeconds;
-    }
-    
-    NSString *numberPart = [timeStr substringToIndex:[timeStr length]-1];
-    double numericalValue = numberPart.doubleValue ?: DEFAULT_TIME_INTERVAL_SECONDS;
-    
-    if ([timeStr hasSuffix:@"s"]) {
-      // this is ok - but nothing to do
-    } else if ([timeStr hasSuffix:@"m"]) numericalValue *= 60;
-      else if ([timeStr hasSuffix:@"h"]) numericalValue *= 60*60;
-      else if ([timeStr hasSuffix:@"d"]) numericalValue *= 60*60*24;
-      else
-      return _refreshIntervalSeconds = @(DEFAULT_TIME_INTERVAL_SECONDS);
+    _refreshIntervalSeconds = [self refreshIntervalFromString:timeStr];
 
-    
-    _refreshIntervalSeconds = @(numericalValue);
-    
   }
-  
   return _refreshIntervalSeconds;
-  
 }
 
 - (BOOL) refresh {
